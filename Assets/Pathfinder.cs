@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
 {
+    [SerializeField] Waypoint startWaypoint;
+    [SerializeField] Waypoint endWaypoint;
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
 
     void Start()
     {
         LoadBlocks();
+        ColorStartAndEnd();
+    }
+
+    void ColorStartAndEnd()
+    {
+        startWaypoint.SetTopColor(Color.green);
+        endWaypoint.SetTopColor(Color.red);
     }
 
     void LoadBlocks()
@@ -23,9 +32,8 @@ public class Pathfinder : MonoBehaviour
             }
             else
             {
-                grid.Add(waypoint.GetGridPos(), waypoint);
+                grid.Add(gridPos, waypoint);
             }
         }
-        print("Loaded " + grid.Count + " blocks");
     }
 }

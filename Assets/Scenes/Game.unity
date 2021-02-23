@@ -196,6 +196,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 58213220}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &315343875 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3032463057639949896, guid: f5413ed3e03d741bca67edc0b612a7a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 58213220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 738fb09e8f7a44b41802355149672234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &358438257 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 201335154031904000, guid: f5413ed3e03d741bca67edc0b612a7a5,
@@ -670,18 +682,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 909704063}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &909704065 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3032463057639949896, guid: f5413ed3e03d741bca67edc0b612a7a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 909704063}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 738fb09e8f7a44b41802355149672234, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,18 +953,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1130684009}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1130684011 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3032463057639949896, guid: f5413ed3e03d741bca67edc0b612a7a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1130684009}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 738fb09e8f7a44b41802355149672234, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1212319060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1208,8 +1196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bdb883eb9754372ac7a777003ee3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWaypoint: {fileID: 1130684011}
-  endWaypoint: {fileID: 909704065}
+  startWaypoint: {fileID: 315343875}
+  endWaypoint: {fileID: 315343875}
 --- !u!1001 &1524263782
 PrefabInstance:
   m_ObjectHideFlags: 0

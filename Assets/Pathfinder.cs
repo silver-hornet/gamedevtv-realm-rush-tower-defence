@@ -7,9 +7,13 @@ public class Pathfinder : MonoBehaviour
 {
     [SerializeField] Waypoint startWaypoint;
     [SerializeField] Waypoint endWaypoint;
+
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
     Queue<Waypoint> queue = new Queue<Waypoint>();
-    [SerializeField] bool isRunning = true; // todo make private
+
+    bool isRunning = true;
+    Waypoint searchCenter;
+
     Vector2Int[] directions = { Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left };
 
     void Start()
@@ -24,12 +28,11 @@ public class Pathfinder : MonoBehaviour
     {
         queue.Enqueue(startWaypoint);
 
-        while(queue.Count > 0 && isRunning)
+        while (queue.Count > 0 && isRunning)
         {
-            var searchCenter = queue.Dequeue();
-            print("Searching from " + searchCenter); // todo remove log
-            HaltIfEndFound(searchCenter);
-            ExploreNeighbours(searchCenter);
+            searchCenter = queue.Dequeue();
+            HaltIfEndFound();
+            ExploreNeighbours();
             searchCenter.isExplored = true;
         }
 
@@ -37,22 +40,21 @@ public class Pathfinder : MonoBehaviour
         print("Finished pathfinding?");
     }
 
-    void HaltIfEndFound(Waypoint searchCenter)
+    void HaltIfEndFound()
     {
         if (searchCenter == endWaypoint)
         {
-            print("Searching from end node, therefore stopping"); // todo remove log
             isRunning = false; // stops the Breadth First Search algorithm
         }
     }
 
-    void ExploreNeighbours(Waypoint from)
+    void ExploreNeighbours()
     {
         if (!isRunning) { return; }
 
         foreach (Vector2Int direction in directions)
         {
-            Vector2Int neighbourCoordinates = from.GetGridPos() + direction;
+            Vector2Int neighbourCoordinates = searchCenter.GetGridPos() + direction;
             try
             {
                 QueueNewNeighbours(neighbourCoordinates);
@@ -67,15 +69,14 @@ public class Pathfinder : MonoBehaviour
     void QueueNewNeighbours(Vector2Int neighbourCoordinates)
     {
         Waypoint neighbour = grid[neighbourCoordinates];
-        if (neighbour.isExplored)
+        if (neighbour.isExplored || queue.Contains(neighbour))
         {
             // do nothing
         }
         else
         {
-            neighbour.SetTopColor(Color.blue); // todo move later
             queue.Enqueue(neighbour);
-            print("Queueing " + neighbour);
+            neighbour.exploredFrom = searchCenter;
         }
     }
 

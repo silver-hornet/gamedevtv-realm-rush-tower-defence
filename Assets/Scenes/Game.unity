@@ -402,11 +402,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 446300043}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &682148843 stripped
+--- !u!114 &525583422 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3032463057639949896, guid: f5413ed3e03d741bca67edc0b612a7a5,
     type: 3}
-  m_PrefabInstance: {fileID: 1130684009}
+  m_PrefabInstance: {fileID: 909704063}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -1209,7 +1209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startWaypoint: {fileID: 315343875}
-  endWaypoint: {fileID: 682148843}
+  endWaypoint: {fileID: 525583422}
   isRunning: 1
 --- !u!1001 &1524263782
 PrefabInstance:

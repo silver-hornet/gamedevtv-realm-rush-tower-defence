@@ -7,17 +7,8 @@ public class Waypoint : MonoBehaviour
     public bool isExplored = false; // public ok here as it is a data class. no point setting a setter and getter for this, since other scripts need to change this value anyway.
     public Waypoint exploredFrom;
 
-    Color exploredColor = Color.blue;
     Vector2Int gridPos;
     const int gridSize = 10;
-
-    void Update()
-    {
-        if (isExplored && exploredFrom != null) // purely optional; can remove if i wish
-        {
-            SetTopColor(exploredColor);
-        }
-    }
 
     public int GetGridSize()
     {

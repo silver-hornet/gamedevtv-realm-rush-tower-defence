@@ -28,7 +28,6 @@ public class Pathfinder : MonoBehaviour
     void CalculatePath()
     {
         LoadBlocks();
-        ColorStartAndEnd();
         BreadthFirstSearch();
         CreatePath();
     }
@@ -95,12 +94,6 @@ public class Pathfinder : MonoBehaviour
             queue.Enqueue(neighbour);
             neighbour.exploredFrom = searchCenter;
         }
-    }
-
-    void ColorStartAndEnd() // todo consider moving out of this class?
-    {
-        startWaypoint.SetTopColor(Color.green);
-        endWaypoint.SetTopColor(Color.red);
     }
 
     void LoadBlocks()

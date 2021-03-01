@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    // Parameters of each tower
     [SerializeField] Transform objectToPan;
-    [SerializeField] Transform targetEnemy;
     [SerializeField] float attackRange = 30f;
     [SerializeField] ParticleSystem projectileParticle;
 
+    // State of each tower
+    Transform targetEnemy;
+
     void Update()
     {
+        SetTargetEnemy();
         if (targetEnemy)
         {
             objectToPan.LookAt(targetEnemy);
@@ -21,6 +25,32 @@ public class Tower : MonoBehaviour
         {
             Shoot(false);
         }
+    }
+
+    void SetTargetEnemy()
+    {
+        var sceneEnemies = FindObjectsOfType<EnemyDamage>();
+        if (sceneEnemies.Length == 0) { return; }
+
+        Transform closestEnemy = sceneEnemies[0].transform;
+
+        foreach (EnemyDamage testEnemy in sceneEnemies)
+        {
+            closestEnemy = GetClosest(closestEnemy, testEnemy.transform);
+        }
+
+        targetEnemy = closestEnemy;
+    }
+
+    Transform GetClosest(Transform transformA, Transform transformB)
+    {
+        var distToA = Vector3.Distance(transform.position, transformA.position);
+        var distToB = Vector3.Distance(transform.position, transformB.position);
+        if (distToA < distToB)
+        {
+            return transformA;
+        }
+        return transformB;
     }
 
     void FireAtEnemy()

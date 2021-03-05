@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -19,6 +20,11 @@ public class PlayerHealth : MonoBehaviour
     {
         GetComponent<AudioSource>().PlayOneShot(playerDamageSFX);
         health -= healthDecrease;
-        healthText.text = health.ToString();    
+        healthText.text = health.ToString();
+
+        if (health <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
